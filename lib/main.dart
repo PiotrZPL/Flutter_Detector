@@ -109,7 +109,10 @@ class _MyHomePageState extends State<MyHomePage> {
             FutureBuilder(
               future: listOfFlutterApps,
               builder: (BuildContext context, AsyncSnapshot<List<FlutterApp>> snapshot) {
-                return Text(snapshot.data!.length.toString());
+                if (snapshot.hasData) {
+                  return Text(snapshot.data!.length.toString());
+                }
+                return const Text("Loading...");
               }
             )
           ],
