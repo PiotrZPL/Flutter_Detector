@@ -13,8 +13,8 @@ Future<List<FlutterApp>> getListOfFlutterApps() async {
     for (ApplicationInfo appInfo in listOfAllApps) {
       if (isFlutterApp(appInfo)) {
         listOfFlutterApps += [FlutterApp(
-          appName: appInfo.name ?? "No name",
-          appLabel: appInfo.packageName ?? "No package name")
+          appName: appInfo.packageName ?? "No package name",
+          appLabel: appInfo.nonLocalizedLabel ?? "No name")
         ];
       }
     }
