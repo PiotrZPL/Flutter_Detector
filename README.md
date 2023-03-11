@@ -1,2 +1,2 @@
 # Flutter_Detector
-A Android simple app to detect other instelled Flutter apps
+A simple Android app, built with Flutter to detect other installed Flutter apps
