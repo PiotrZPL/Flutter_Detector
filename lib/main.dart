@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_detector/tools/flutter_app.dart';
+import 'package:android_package_manager/android_package_manager.dart';
 
 import 'tools/get_list_of_flutter_apps.dart';
-import 'tools/build_list_of_flutter_app_list_items.dart';
+import 'widgets/flutter_app_list_item.dart';
 
 void main() {
   runApp(const MyApp());
@@ -53,7 +53,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  Future<List<FlutterApp>> listOfFlutterApps = getListOfFlutterApps();
+  Future<List<ApplicationInfo>> listOfFlutterApps = getListOfFlutterApps();
 
   void _incrementCounter() {
     setState(() {
@@ -85,10 +85,15 @@ class _MyHomePageState extends State<MyHomePage> {
         // in the middle of the parent.
         child: FutureBuilder(
           future: listOfFlutterApps,
-          builder: (BuildContext context, AsyncSnapshot<List<FlutterApp>> snapshot) {
+          builder: (BuildContext context, AsyncSnapshot<List<ApplicationInfo>> snapshot) {
             if (snapshot.hasData) {
-              return ListView(
-                children: buildListOfFlutterAppListItems(listOfFlutterApps: snapshot.data!)
+              return ListView.builder(
+                itemCount: snapshot.data!.length,
+                itemBuilder: (context, index) {
+                  return FlutterAppListItem(
+                    flutterApp: snapshot.data![index]
+                  );
+                }
               );
             }
             return const Text("Loading...");

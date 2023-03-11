@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../tools/flutter_app.dart';
+import 'package:android_package_manager/android_package_manager.dart';
 
 class FlutterAppListItem extends StatelessWidget {
   const FlutterAppListItem({
@@ -8,15 +7,24 @@ class FlutterAppListItem extends StatelessWidget {
     required this.flutterApp
   });
 
-  final FlutterApp flutterApp;
+  final ApplicationInfo flutterApp;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: 
       ListTile(
-        title: Text(flutterApp.appLabel),
-        subtitle: Text(flutterApp.appName),
+        title: Text(flutterApp.nonLocalizedLabel ?? "No name"),
+        subtitle: Text(flutterApp.packageName ?? "No package name"),
+        leading: FutureBuilder(
+          future: flutterApp.getAppIcon(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Image.memory(snapshot.data!);
+            }
+            return const Text("Loading...");
+          },
+        ),
       ),
     );
   }

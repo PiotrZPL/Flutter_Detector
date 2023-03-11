@@ -5,10 +5,10 @@ packages:
     dependency: "direct main"
     description:
       name: android_package_manager
-      sha256: c7b5fecbe6bda90bd12ba7c2c88d1f9c419804d963a38f0eca0951474a1fbfc9
+      sha256: "5fcd7f1217d0442869da89b5606a0691946f71382d69a75db528f1bb3e6f2a76"
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.0"
+    version: "0.5.0"
   async:
     dependency: transitive
     description:
