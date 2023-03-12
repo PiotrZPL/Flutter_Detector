@@ -43,7 +43,21 @@ class _AboutPageState extends State<AboutPage> {
                   context: context,
                   applicationName: "Flutter Detector",
                   // applicationVersion: applicationVersion,
-                  // applicationIcon: applicationIcon,
+                  applicationIcon: Column(
+                    children: [
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Image.asset(
+                        "assets/images/icon_full_small.png",
+                        height: 150,
+                        width: 150,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                    ],
+                  ),
                   applicationLegalese: "Released under the terms of the GNU GPL v3.\n\nCopyright (c) 2023 Piotr Lange",
                 );
               }, 
