@@ -19,10 +19,16 @@ class _AboutPageState extends State<AboutPage> {
       body: Center(
         child: Column(
           children: [
+            Image.asset(
+              "assets/images/icon_full_small.png",
+              height: 250,
+              width: 250,
+            ),
             const Text(
               "Flutter Detector",
               style: TextStyle(
-                fontSize: 32
+                fontSize: 32,
+                fontWeight: FontWeight.bold
               ),
             ),
             const Text(
