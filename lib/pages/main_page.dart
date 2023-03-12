@@ -3,6 +3,7 @@ import 'package:android_package_manager/android_package_manager.dart';
 
 import '../tools/get_list_of_flutter_apps.dart';
 import 'apps_page.dart';
+import 'about_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -23,11 +24,10 @@ class _MainPageState extends State<MainPage> {
           PopupMenuButton<int>(
             onSelected: (item) {
               if (item == 0) {
-                showAboutDialog(
-                  context: context,
-                  applicationVersion: "1.0",
-                  applicationName: "Flutter Detector",
-                  applicationLegalese: "Released under the terms of the GNU GPL v3.\n\nCopyright (c) 2023 Piotr Lange",
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => const AboutPage()
+                  )
                 );
               }
             },
