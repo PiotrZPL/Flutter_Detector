@@ -19,17 +19,25 @@ class _MainPageState extends State<MainPage> {
 
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        // title: const Text(
-        //   "Flutter ",
-        //   // style: TextStyle(
-        //   //   color: Color.fromARGB(255, 65, 219, 134)
-        //   // )
-        // ),
-        // iconTheme: const IconThemeData(
-        //   color: Color.fromARGB(255, 65, 219, 134)
-        // ),
+        actions: [
+          PopupMenuButton<int>(
+            onSelected: (item) {
+              if (item == 0) {
+                showAboutDialog(
+                  context: context,
+                  applicationVersion: "1.0",
+                  applicationName: "Flutter Detector",
+                  applicationLegalese: "Released under the terms of the GNU GPL v3.\n\nCopyright (c) 2023 Piotr Lange",
+                );
+              }
+            },
+            itemBuilder: (context) => [
+              const PopupMenuItem(
+                value: 0,
+                child: Text("About"),
+              )
+            ])
+        ],
       ),
       body: FutureBuilder(
         future: listOfFlutterApps,
