@@ -74,8 +74,6 @@ class _MainPageState extends State<MainPage> {
                     height: 12,
                   ),
                   SizedBox(
-                    height: 90,
-                    width: 90,
                     child: IconButton(
                       onPressed: () {
                         Navigator.of(context).push(
