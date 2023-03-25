@@ -6,10 +6,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "77e80bd079aa951050dd001a260b63414c63fe43"
+      resolved-ref: "59f3f445ef46b4d9ef4b6ad5aa5ea89e54e9d6f4"
       url: "https://github.com/PiotrZPL/android_package_manager"
     source: git
-    version: "0.5.0"
+    version: "0.5.2+1"
   archive:
     dependency: transitive
     description:
@@ -306,5 +306,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.19.2 <3.0.0"
+  dart: ">=2.19.3 <3.0.0"
   flutter: ">=2.5.0"

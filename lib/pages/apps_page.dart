@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:android_package_manager/android_package_manager.dart';
 
 import '../widgets/flutter_app_list_item.dart';
+import '../tools/flutter_app.dart';
 
 class AppsPage extends StatefulWidget {
   const AppsPage({
@@ -9,7 +9,7 @@ class AppsPage extends StatefulWidget {
     required this.listOfFlutterApps
   });
 
-  final List<ApplicationInfo> listOfFlutterApps;
+  final List<FlutterApp> listOfFlutterApps;
 
   @override
   State<AppsPage> createState() => _AppsPageState();
