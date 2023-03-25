@@ -51,82 +51,127 @@ class _MainPageState extends State<MainPage> {
         future: listOfFlutterApps,
         builder: (BuildContext context, AsyncSnapshot<List<ApplicationInfo>> snapshot) {
           if (snapshot.hasData) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "There are",
-                    style: TextStyle(
-                      fontSize: 28
+            if (snapshot.data!.length == 1) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      "Flutter Detector is the",
+                      style: TextStyle(
+                        fontSize: 28
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 12,
-                  ),
-                  Text(
-                    snapshot.data!.length.toString(),
-                    style: const TextStyle(
-                      fontSize: 52,
-                      fontWeight: FontWeight.bold
+                    SizedBox(
+                      height: 12,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 12,
-                  ),
-                  const Text(
-                    "Flutter apps installed",
-                    style: TextStyle(
-                      fontSize: 28
+                    Text(
+                      "only",
+                      style: TextStyle(
+                        fontSize: 52,
+                        fontWeight: FontWeight.bold
+                      ),
                     ),
-                  ),
-                  const Text(
-                    "on this device.",
-                    style: TextStyle(
-                      fontSize: 28
+                    SizedBox(
+                      height: 12,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 12,
-                  ),
-                  FutureBuilder(
-                    future: getListOfFlutterAppsWithIcons(listOfFlutterApps: snapshot.data!),
-                    builder: (BuildContext context, AsyncSnapshot<List<FlutterApp>> snapshot2) {
-                      return SizedBox(
-                        child: IconButton(
-                          onPressed: () {
-                            Navigator.of(context).push(
-                              PageRouteBuilder(
-                                pageBuilder: (context, animation, secondaryAnimation) => AppsPage(listOfFlutterApps: snapshot2.data!),
-                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                  const begin = Offset(1.0, 0.0);
-                                  const end = Offset.zero;
-                                  const curve = Curves.ease;
-                                      
-                                  var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                                      
-                                  return SlideTransition(
-                                    position: animation.drive(tween),
-                                    child: child,
-                                  );
-                                },
-                              )
-                            );
-                          },
-                          icon: const Icon(
-                            Icons.arrow_circle_right,
-                            size: 90,
+                    Text(
+                      "Flutter app installed",
+                      style: TextStyle(
+                        fontSize: 28
+                      ),
+                    ),
+                    Text(
+                      "on this device.",
+                      style: TextStyle(
+                        fontSize: 28
+                      ),
+                    ),
+                    SizedBox(
+                      height: 100,
+                    )
+                  ],
+                ),
+              );
+            }
+            else {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "There are",
+                      style: TextStyle(
+                        fontSize: 28
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Text(
+                      snapshot.data!.length.toString(),
+                      style: const TextStyle(
+                        fontSize: 52,
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    const Text(
+                      "Flutter apps installed",
+                      style: TextStyle(
+                        fontSize: 28
+                      ),
+                    ),
+                    const Text(
+                      "on this device.",
+                      style: TextStyle(
+                        fontSize: 28
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    FutureBuilder(
+                      future: getListOfFlutterAppsWithIcons(listOfFlutterApps: snapshot.data!),
+                      builder: (BuildContext context, AsyncSnapshot<List<FlutterApp>> snapshot2) {
+                        return SizedBox(
+                          child: IconButton(
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                PageRouteBuilder(
+                                  pageBuilder: (context, animation, secondaryAnimation) => AppsPage(listOfFlutterApps: snapshot2.data!),
+                                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                    const begin = Offset(1.0, 0.0);
+                                    const end = Offset.zero;
+                                    const curve = Curves.ease;
+                                        
+                                    var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                                        
+                                    return SlideTransition(
+                                      position: animation.drive(tween),
+                                      child: child,
+                                    );
+                                  },
+                                )
+                              );
+                            },
+                            icon: const Icon(
+                              Icons.arrow_circle_right,
+                              size: 90,
+                            ),
                           ),
-                        ),
-                      );
-                    }
-                  ),
-                  const SizedBox(
-                    height: 100,
-                  )
-                ],
-              ),
-            );
+                        );
+                      }
+                    ),
+                    const SizedBox(
+                      height: 100,
+                    )
+                  ],
+                ),
+              );
+            }
           }
           return const Center(
             child: SizedBox(
