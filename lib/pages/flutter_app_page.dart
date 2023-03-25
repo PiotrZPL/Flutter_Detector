@@ -40,6 +40,18 @@ class _FlutterAppPageState extends State<FlutterAppPage> {
             ),
             Text(
               widget.flutterApp.packageName
+            ),
+            Text(
+              "Minimum SDK version: ${widget.flutterApp.minSdk}"
+            ),
+            Text(
+              "Target SDK version: ${widget.flutterApp.targetSdk}"
+            ),
+            Text(
+              "Compile SDK version: ${widget.flutterApp.compileSdk}"
+            ),
+            Text(
+              widget.flutterApp.listOfNativeLibs.toString()
             )
           ],
         )
