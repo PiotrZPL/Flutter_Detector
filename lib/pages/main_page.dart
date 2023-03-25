@@ -36,7 +36,13 @@ class _MainPageState extends State<MainPage> {
             itemBuilder: (context) => [
               const PopupMenuItem(
                 value: 0,
-                child: Text("About"),
+                child: ListTile(
+                  title: Text("About"),
+                  leading: Icon(
+                    Icons.info,
+                    color: Colors.white,
+                  ),
+                ),
               )
             ])
         ],
