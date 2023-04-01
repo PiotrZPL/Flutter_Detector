@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../tools/flutter_app.dart';
+import '../widgets/package_info_table.dart';
 
 class FlutterAppPage extends StatefulWidget {
   const FlutterAppPage({
@@ -22,7 +23,7 @@ class _FlutterAppPageState extends State<FlutterAppPage> {
       appBar: AppBar(
       ),
       body: Center(
-        child: Column(
+        child: ListView(
           children: [
             widget.flutterApp.appIcon != null
             ? Image.memory(
@@ -33,25 +34,33 @@ class _FlutterAppPageState extends State<FlutterAppPage> {
             : const Text("No icon"),
             Text(
               widget.flutterApp.appName,
+              textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.bold
               ),
             ),
             Text(
-              widget.flutterApp.packageName
+              widget.flutterApp.packageName,
+              textAlign: TextAlign.center,
             ),
-            Text(
-              "Minimum SDK version: ${widget.flutterApp.minSdk}"
-            ),
-            Text(
-              "Target SDK version: ${widget.flutterApp.targetSdk}"
-            ),
-            Text(
-              "Compile SDK version: ${widget.flutterApp.compileSdk}"
-            ),
-            Text(
-              widget.flutterApp.listOfNativeLibs.toString()
+            // Text(
+            //   "Minimum SDK version: ${widget.flutterApp.minSdk}"
+            // ),
+            // Text(
+            //   "Target SDK version: ${widget.flutterApp.targetSdk}"
+            // ),
+            // Text(
+            //   "Compile SDK version: ${widget.flutterApp.compileSdk}"
+            // ),
+            // Text(
+            //   widget.flutterApp.listOfNativeLibs.toString()
+            // ),
+            PackageInfoTable(
+              minSdk: widget.flutterApp.minSdk,
+              targetSdk: widget.flutterApp.targetSdk,
+              compileSdk: widget.flutterApp.compileSdk,
+              listOfNativeLibs: widget.flutterApp.listOfNativeLibs,
             )
           ],
         )
