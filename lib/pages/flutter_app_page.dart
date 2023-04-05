@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app_actions/app_actions.dart';
 
 import '../tools/flutter_app.dart';
 import '../widgets/package_info_table.dart';
@@ -44,23 +45,23 @@ class _FlutterAppPageState extends State<FlutterAppPage> {
               widget.flutterApp.packageName,
               textAlign: TextAlign.center,
             ),
-            // Text(
-            //   "Minimum SDK version: ${widget.flutterApp.minSdk}"
-            // ),
-            // Text(
-            //   "Target SDK version: ${widget.flutterApp.targetSdk}"
-            // ),
-            // Text(
-            //   "Compile SDK version: ${widget.flutterApp.compileSdk}"
-            // ),
-            // Text(
-            //   widget.flutterApp.listOfNativeLibs.toString()
-            // ),
             PackageInfoTable(
               minSdk: widget.flutterApp.minSdk,
               targetSdk: widget.flutterApp.targetSdk,
               compileSdk: widget.flutterApp.compileSdk,
               listOfNativeLibs: widget.flutterApp.listOfNativeLibs,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                AppActions().openApp(appName: widget.flutterApp.packageName);
+              },
+              child: const Text("Open app")
+            ),
+            ElevatedButton(
+              onPressed: () {
+                AppActions().openAppSettings(appName: widget.flutterApp.packageName);
+              },
+              child: const Text("Open settings")
             )
           ],
         )

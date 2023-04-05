@@ -38,6 +38,9 @@ dependencies:
   android_package_manager:
     git:
       https://github.com/PiotrZPL/android_package_manager
+  app_actions:
+    git:
+      https://github.com/PiotrZPL/app_actions
 
 dev_dependencies:
   flutter_test:

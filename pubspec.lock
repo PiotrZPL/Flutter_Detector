@@ -10,6 +10,15 @@ packages:
       url: "https://github.com/PiotrZPL/android_package_manager"
     source: git
     version: "0.5.2+1"
+  app_actions:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: c2ae4e389181995c4b5c02d0296536390926b20f
+      url: "https://github.com/PiotrZPL/app_actions"
+    source: git
+    version: "0.0.1"
   archive:
     dependency: transitive
     description:
@@ -212,6 +221,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.0"
+  plugin_platform_interface:
+    dependency: transitive
+    description:
+      name: plugin_platform_interface
+      sha256: "6a2128648c854906c53fa8e33986fc0247a1116122f9534dd20e3ab9e16a32bc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.4"
   pointycastle:
     dependency: transitive
     description:
@@ -306,5 +323,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.19.3 <3.0.0"
+  dart: ">=2.19.4 <3.0.0"
   flutter: ">=2.5.0"
