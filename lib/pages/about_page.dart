@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../tools/globals.dart';
+
 class AboutPage extends StatefulWidget {
   const AboutPage({
     super.key,
@@ -34,6 +36,9 @@ class _AboutPageState extends State<AboutPage> {
             const Text(
               "Released under the terms of the GNU GPL v3."
             ),
+            Globals().releaseVersion != null 
+            ? Text(Globals().releaseVersion!)
+            : const Text("Development version"),
             const Text(
               "Copyright (c) 2023 Piotr Lange"
             ),
