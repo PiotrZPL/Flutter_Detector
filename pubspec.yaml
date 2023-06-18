@@ -43,6 +43,7 @@ dependencies:
   app_actions:
     git:
       https://github.com/PiotrZPL/app_actions
+  dynamic_color: ^1.6.5
 
 dev_dependencies:
   flutter_test:
