@@ -51,21 +51,38 @@ class _FlutterAppPageState extends State<FlutterAppPage> {
               compileSdk: widget.flutterApp.compileSdk,
               listOfNativeLibs: widget.flutterApp.listOfNativeLibs,
             ),
-            ElevatedButton(
-              onPressed: () {
-                AppActions().openApp(appName: widget.flutterApp.packageName);
-              },
-              child: const Text("Open app")
-            ),
-            ElevatedButton(
-              onPressed: () {
-                AppActions().openAppSettings(appName: widget.flutterApp.packageName);
-              },
-              child: const Text("Open settings")
-            )
-          ],
+          ] + buildAppButtons(widget.flutterApp.packageName),
         )
       )
     );
+  }
+
+  List<Widget> buildAppButtons(String packageName) {
+    if (packageName != "de.piotrlange.flutter_detector") {
+      return [
+        ElevatedButton(
+          onPressed: () {
+            AppActions().openApp(appName: packageName);
+          },
+          child: const Text("Open app")
+        ),
+        ElevatedButton(
+          onPressed: () {
+            AppActions().openAppSettings(appName: packageName);
+          },
+          child: const Text("Open settings")
+        )
+      ];
+    }
+    else {
+      return [
+        ElevatedButton(
+          onPressed: () {
+            AppActions().openAppSettings(appName: packageName);
+          },
+          child: const Text("Open settings")
+        )
+      ];
+    }
   }
 }
