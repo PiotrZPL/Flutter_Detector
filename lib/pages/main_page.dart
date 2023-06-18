@@ -51,10 +51,10 @@ class _MainPageState extends State<MainPage> {
         builder: (BuildContext context, AsyncSnapshot<List<ApplicationInfo>> snapshot) {
           if (snapshot.hasData) {
             if (snapshot.data!.length == 1) {
-              return Center(
+              return const Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text(
                       "Flutter Detector is the",
                       style: TextStyle(
