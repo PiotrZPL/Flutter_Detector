@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.piotrlange.flutter_detector">
    <application
-        android:label="flutter_detector"
+        android:label="Flutter Detector"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
