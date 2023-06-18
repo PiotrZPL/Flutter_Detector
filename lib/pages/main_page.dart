@@ -40,7 +40,6 @@ class _MainPageState extends State<MainPage> {
                   title: Text("About"),
                   leading: Icon(
                     Icons.info,
-                    color: Colors.white,
                   ),
                 ),
               )
